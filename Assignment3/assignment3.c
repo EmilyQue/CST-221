@@ -12,6 +12,7 @@
 //This is my own work. Starter code provided by instructor.
 //Resources used: https://embeddedartistry.com/blog/2017/4/6/circular-buffers-in-cc,
 //https://www.geeksforgeeks.org/use-posix-semaphores-c/
+//Semaphore code does not work properly. Also still had trouble trying to implement the monitor.
 
 // Constants
 int MAX = 100;
