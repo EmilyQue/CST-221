@@ -5,6 +5,7 @@
 #include <sys/mman.h>
 #include <errno.h>
 #include <semaphore.h>
+#include <pthread.h>
 
 //Emily Quevedo
 //CST-221
@@ -109,7 +110,7 @@ void consumer()
     // TODO: Implement Consumer Logic (see page 129 in book)
     int i;
     while (1) {
-        if (buffer->count <= MAX && buffer->count > 0) {
+        if (buffer->count < MAX && buffer->count > 0) {
         printf("Buffer is full. Data can be consumed\n");
         wakeupOther();
         sleepAndWait();
@@ -118,7 +119,7 @@ void consumer()
         //locks semaphore
         sem_wait(&mutex);
         }
-        else if (i == 0) {
+        else{
         printf("Buffer is empty. Consumer will be put to sleep\n");
         sleep(10);
         }
@@ -147,7 +148,7 @@ void producer()
     // TODO: Implement Producer Logic (see page 129 in book)
     while(1) {
         
-        if (buffer->count == value) {
+        if (buffer->count == MAX) {
             printf("Buffer is full. Producer will be put to sleep\n");
             sleep(10);        
         }
