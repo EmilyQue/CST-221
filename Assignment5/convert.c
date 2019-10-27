@@ -1,4 +1,6 @@
-//References: 
+//References: https://www.geeksforgeeks.org/program-decimal-binary-conversion/
+// https://ryanstutorials.net/binary-tutorial/binary-conversions.php
+// https://stackoverflow.com/questions/6867489/clear-lower-16-bits
 
 #include <stdio.h>
 
